@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exodus Crypto</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f7cc3c;
+      color: #000;
+    }
+    header {
+      background: #000;
+      color: #f7cc3c;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .banner {
+      text-align: center;
+      margin: 20px auto;
+    }
+    .banner img {
+      width: 90%;
+      border-radius: 10px;
+    }
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .produto {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .produto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .produto h3 {
+      margin: 10px 0 5px;
+    }
+    .produto .preco {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin: 8px 0;
+      color: #222;
+    }
+    .btn-pix, .btn-discord {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #f7cc3c;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .btn-pix:hover, .btn-discord:hover {
+      background: #e0b800;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    .pix-chave {
+      margin-top: 10px;
+      background: #eee;
+      padding: 10px;
+      font-size: 0.9em;
+      border-radius: 5px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <header>EXODUS CRYPTO</header>
+
+  <div class="banner">
+    <img src="https://media.discordapp.net/attachments/1374215890148786260/1391492170136944755/Banner.png?ex=686c1792&is=686ac612&hm=9927c74c0ab497c5c02202f8744e70ddcd910830058f2cc09c050a4eb42cf036&=&width=646&height=364" alt="Banner Exodus Crypto">
+  </div>
+
+  <section class="produtos">
+    <div class="produto">
+      <img src="https://media.discordapp.net/attachments/1374215890148786260/1391492124524150867/honey.png?ex=686c1787&is=686ac607&hm=e99eb45159b3dfc1dbd98bc87223d66c62dbfa9b53e4796f721bad38b9dfe92d&=&width=646&height=370" alt="Honey Mix">
+      <h3>💜HONEY MIX FULL DADOS</h3>
+      <p>🍯 Honey Mix — Combinação Premium<br>
+        Aleatoriamente:<br><br>
+        💳 Prepaid<br>
+        🏃 Classic<br>
+        📦 Standard</p>
+      <div class="preco">R$ 25,00</div>
+      <button class="btn-pix" onclick="copiarPix()">Pagar com Pix</button>
+      <div class="pix-chave" id="pix-chave-honey" style="display: none;">08340b0e-a1d3-4664-a14b-6a6b2a3b1b06</div>
+    </div>
+    <div class="produto">
+      <img src="https://media.discordapp.net/attachments/1374215890148786260/1391492123957788702/SCAR.png?ex=686c1787&is=686ac607&hm=15b5804b1405444b76d2fe6c834f4d049162e2ad2e578b99409cc6ba36c0a1b4&=&width=646&height=370" alt="Scar Pack">
+      <h3>💜 BRIGADEIRO SCAR FULL DADOS</h3>
+      <p>🍫 Brigadeiros Scar — Níveis Exclusivos<br>
+        Aleatoriamente:<br><br>
+        ♾️ Infinite<br>
+        ⚫ Black<br>
+        💳 Amex</p>
+      <div class="preco">R$ 65,00</div>
+      <button class="btn-pix" onclick="copiarPix()">Pagar com Pix</button>
+      <div class="pix-chave" id="pix-chave-scar" style="display: none;">08340b0e-a1d3-4664-a14b-6a6b2a3b1b06</div>
+    </div>
+    <div class="produto">
+      <img src="https://media.discordapp.net/attachments/1374215890148786260/1391492124888924430/Safe.png?ex=686c1787&is=686ac607&hm=b901961ee7b7f2287348b19d0f499dd2bd87057f3fb0156db08446dd537c45ec&=&width=646&height=370" alt="Safe Pack">
+      <h3>💜SALGADO SAFE FULL DADOS</h3>
+      <p>🥟 Salgados Safe — Entregas Premium<br>
+        Aleatoriamente:<br><br>
+        🥇 Gold<br>
+        🦳 Bunisses (Business)<br>
+        🐠 Platinum</p>
+      <div class="preco">R$ 35,00</div>
+      <button class="btn-pix" onclick="copiarPix()">Pagar com Pix</button>
+      <div class="pix-chave" id="pix-chave-safe" style="display: none;">08340b0e-a1d3-4664-a14b-6a6b2a3b1b06</div>
+    </div>
+  </section>
+
+  <div style="text-align:center; margin: 20px;">
+    <button class="btn-discord" onclick="window.open('https://discord.gg/ytWngPahAu', '_blank')">💬 Suporte no Discord</button>
+  </div>
+
+  <footer>
+    &copy; 2025 Exodus Crypto. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function copiarPix() {
+      const chavePix = "08340b0e-a1d3-4664-a14b-6a6b2a3b1b06";
+      navigator.clipboard.writeText(chavePix);
+      alert("Chave Pix copiada: " + chavePix);
+    }
+  </script>
+</body>
+</html>
