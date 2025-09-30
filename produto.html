@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Rank - TryHardMC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .produto-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #1c1c1c;
+      padding: 30px 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,255,0,0.4);
+    }
+
+    .produto-container img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0,255,0,0.5);
+    }
+
+    .produto-container h1 {
+      margin-bottom: 15px;
+      color: #0f0;
+      font-size: 28px;
+      text-shadow: 0 0 8px #0f0;
+    }
+
+    .produto-container p {
+      margin: 12px 0;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px 10px 0 0;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .comprar {
+      background-color: #0f0;
+      color: #000;
+      box-shadow: 0 0 10px #0f0, 0 0 20px #0f0 inset;
+    }
+
+    .comprar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #0f0, 0 0 30px #0f0 inset;
+    }
+
+    .voltar {
+      background-color: #0ff;
+      color: #000;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+    }
+
+    .voltar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #0ff, 0 0 30px #0ff inset;
+    }
+
+    /* Estilo das vantagens */
+    .vantagens-container {
+      margin-top: 25px;
+      text-align: left;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,255,0,0.3);
+    }
+
+    .vantagens-container h2 {
+      color: #0f0;
+      margin-bottom: 15px;
+      font-size: 20px;
+      text-shadow: 0 0 6px #0f0;
+    }
+
+    .vantagens-container ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .vantagens-container li {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="produto-container">
+    <img id="produto-img" src="" alt="Produto">
+    <h1 id="produto-nome"></h1>
+    <p id="produto-preco"></p>
+    <p id="produto-desc"></p>
+
+    <!-- Lista de vantagens -->
+    <div id="produto-vantagens" class="vantagens-container"></div>
+
+    <div class="buttons">
+      <a href="finalizar.html" class="comprar">Comprar</a>
+      <a href="index.html" class="voltar">Voltar para a loja</a>
+    </div>
+  </div>
+
+  <script>
+    const ranks = {
+      "ELITE_SUPREME": {
+        nome: "ELITE SUPREME",
+        preco: "R$ 50,00",
+        desc: "O Rank ELITE SUPREME oferece kits exclusivos, prioridade em filas e benefícios especiais no servidor.",
+        img: "imagens/supreme.png"
+      },
+      "ELITE_PRIME": {
+        nome: "ELITE PRIME",
+        preco: "R$ 42,00",
+        desc: "O Rank ELITE PRIME oferece kits premium, acesso a eventos exclusivos e vantagens no servidor.",
+        img: "imagens/prime.png"
+      },
+      "ELITE_PLUSPLUS": {
+        nome: "ELITE++",
+        preco: "R$ 34,00",
+        desc: "O Rank ELITE++ permite acesso a kits avançados e bônus exclusivos dentro do servidor.",
+        img: "imagens/elite.png"
+      },
+      "BETA": {
+        nome: "BETA",
+        preco: "R$ 26,00",
+        desc: "O Rank BETA oferece acesso antecipado a novos recursos e algumas vantagens iniciais no servidor.",
+        img: "imagens/beta.png"
+      },
+      "2025": {
+        nome: "2025",
+        preco: "R$ 18,00",
+        desc: "O Rank 2025 é perfeito para novos jogadores, com algumas vantagens iniciais e kits básicos.",
+        img: "imagens/2025.png"
+      },
+      "TRYHARD_PLUS": {
+        nome: "TRYHARD+",
+        preco: "R$ 12,00",
+        desc: "O Rank TRYHARD+ oferece kits iniciais, bônus leves e acesso a algumas funcionalidades especiais.",
+        img: "imagens/tryhardplus.png"
+      },
+      "TRYHARD": {
+        nome: "TRYHARD",
+        preco: "R$ 5,99",
+        desc: "O Rank TRYHARD é ideal para começar, com kits básicos e pequenas vantagens dentro do servidor.",
+        img: "imagens/tryhard.png"
+      }
+    };
+
+    // Vantagens atribuídas para cada rank baseado no que você enviou
+    const vantagens = {
+      "ELITE_SUPREME": [
+        "Party ✅",
+        "Cosméticos e medalhas ✅",
+        "Voar no lobby ✅",
+        "Criar clans ✅",
+        "Apoie o servidor ✅",
+        "Seletor de mapas ✅",
+        "Preferência de cor ✅",
+        "Sala de voz exclusiva no Discord ✅",
+        "Tag exclusiva ✅",
+        "Alterar apelido ✅"
+      ],
+      "ELITE_PRIME": [
+        "Party ✅",
+        "Cosméticos e medalhas ✅",
+        "Voar no lobby ✅",
+        "Criar clans ✅",
+        "Apoie o servidor ✅",
+        "Seletor de mapas ✅",
+        "Sala de voz exclusiva no Discord ✅",
+        "Tag exclusiva ✅",
+        "Alterar apelido ✅"
+      ],
+      "ELITE_PLUSPLUS": [
+        "Party ✅",
+        "Cosméticos e medalhas ✅",
+        "Voar no lobby ✅",
+        "Criar clans ✅",
+        "Apoie o servidor ✅",
+        "Seletor de mapas ✅",
+        "Tag exclusiva ✅",
+        "Alterar apelido ✅"
+      ],
+      "BETA": [
+        "Party ✅",
+        "Cosméticos e medalhas ✅",
+        "Nick customizado (/nick) ✅",
+        "Voar no lobby ✅",
+        "Criar clans ✅",
+        "Apoie o servidor ✅",
+        "Seletor de mapas ✅",
+        "Preferência de cor ✅",
+        "Sala de voz exclusiva no Discord ✅",
+        "Tag exclusiva ✅",
+        "Alterar apelido ✅"
+      ],
+      "2025": [
+        "Party ✅",
+        "Cosméticos e medalhas ✅",
+        "Voar no lobby ✅",
+        "Apoie o servidor ✅",
+        "Seletor de mapas ✅",
+        "Sala de voz exclusiva no Discord ✅",
+        "Tag exclusiva ✅",
+        "Alterar apelido ✅"
+      ],
+      "TRYHARD_PLUS": [
+        "Party ✅",
+        "Cosméticos e medalhas ✅",
+        "Voar no lobby ✅",
+        "Apoie o servidor ✅",
+        "Seletor de mapas ✅",
+        "Sala de voz exclusiva no Discord ✅",
+        "Tag exclusiva ✅",
+        "Alterar apelido ✅"
+      ],
+      "TRYHARD": [
+        "Party ✅",
+        "Cosméticos e medalhas ✅",
+        "Voar no lobby ✅",
+        "Apoie o servidor ✅",
+        "Seletor de mapas ✅",
+        "Tag exclusiva ✅",
+        "Alterar apelido ✅"
+      ]
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const rankKey = params.get('rank');
+
+    if(ranks[rankKey]) {
+      document.getElementById("produto-img").src = ranks[rankKey].img;
+      document.getElementById("produto-img").alt = ranks[rankKey].nome;
+      document.getElementById("produto-nome").textContent = ranks[rankKey].nome;
+      document.getElementById("produto-preco").textContent = ranks[rankKey].preco;
+      document.getElementById("produto-desc").textContent = ranks[rankKey].desc;
+
+      const container = document.getElementById("produto-vantagens");
+      let html = "<h2>Vantagens do Rank</h2><ul>";
+      vantagens[rankKey].forEach(v => {
+        html += `<li>${v}</li>`;
+      });
+      html += "</ul>";
+      container.innerHTML = html;
+
+    } else {
+      document.getElementById("produto-nome").textContent = "Rank não encontrado!";
+      document.getElementById("produto-desc").textContent = "";
+      document.getElementById("produto-preco").textContent = "";
+      document.getElementById("produto-img").style.display = "none";
+      document.getElementById("produto-vantagens").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
